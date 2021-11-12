@@ -29,12 +29,17 @@ with open(financial_analysis) as csv_file:
     for x in range(len(profit)-1):
         change_profit.append(profit[x+1] - profit[x])
 
+# calculate greatest increase and decrease
+
 greatest_inc = max(change_profit)
 greatest_dec = min(change_profit)
+
+# get the date of each increase and decrease
 
 month_inc = change_profit.index(max(change_profit))+1
 month_dec = change_profit.index(min(change_profit))+1
 
+# print output
 
 print("Financial Analysis")
 print("-----------------------------------")
@@ -43,6 +48,8 @@ print(f"Total: ${sum(profit)}")
 print(f"Average Change: ${round(sum(change_profit)/len(change_profit),2)}")
 print(f"Greatest Increase in Profits: {date[month_inc]} (${(str(greatest_inc))})")
 print(f"Greatest Decrease in Profits: {date[month_dec]} (${(str(greatest_dec))})")
+
+# write into new text file
 
 with open("Export.txt", "w") as export_file:
     export_file.write("Financial Analysis\n")
