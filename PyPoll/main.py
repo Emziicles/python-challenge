@@ -21,6 +21,7 @@ with open (election_data) as csv_file:
     candidate_votes = {}
     winner_count = 0
 
+# read through the rows
 
     for row in csv_reader:
         total_votes += 1
@@ -30,18 +31,25 @@ with open (election_data) as csv_file:
         else:
             candidate_votes[row[2]] += 1
 
+# print the output
+
 print("Election Results")
 print("----------------------------")
 print(f"Total number of votes: {[total_votes]}")
 print("----------------------------")
+
+# work out the candidates votes and percentages
 
 candidates_info = ""
 for candidates in candidate_votes.keys():
     candidates_info = '\n'.join([candidates_info, candidates + " {:.2%}".format(candidate_votes[candidates] / total_votes) + "("+ str(candidate_votes[candidates])+ ")\n"])
 print(candidates_info)
 
+# calculate the winner
 
 winner = max(candidate_votes, key=candidate_votes.get)
+
+# print the output
 
 print("----------------------------")
 print(f"Winner: {[winner]}")
