@@ -19,7 +19,6 @@ with open (election_data) as csv_file:
     total_votes = 0
     candidate_list = []
     candidate_votes = {}
-    winner_count = 0
 
 # read through the rows
 
