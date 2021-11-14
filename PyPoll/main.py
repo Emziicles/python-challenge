@@ -37,7 +37,7 @@ print("----------------------------")
 
 candidates_info = ""
 for candidates in candidate_votes.keys():
-    candidates_info = '\n'.join([candidates_info, candidates + " {:.2%}".format(candidate_votes[candidates] / total_votes) + "("+ str(candidate_votes[candidates])+ ")"])
+    candidates_info = '\n'.join([candidates_info, candidates + " {:.2%}".format(candidate_votes[candidates] / total_votes) + "("+ str(candidate_votes[candidates])+ ")\n"])
 print(candidates_info)
 
 
@@ -50,9 +50,16 @@ print("----------------------------")
 # write into new text file
 
 with open("Poll_Export.txt", "w") as export_file:
-    export_file.write()
+    export_file.write("Election Results\n")
+    export_file.write("----------------------------\n")
+    export_file.write(f"Total number of votes: {[total_votes]}\n")
+    export_file.write("----------------------------\n")
+    export_file.write(f"{[candidates_info]}\n")
+    export_file.write("----------------------------\n")
+    export_file.write(f"Winner: {[winner]}\n")
+    export_file.write("----------------------------\n")
 
-
+    export_file.close()
 
 
 
